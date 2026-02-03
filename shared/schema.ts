@@ -14,6 +14,10 @@ import { z } from "zod";
 
 export * from "./models/auth";
 
+// Re-export the users table from the auth model so other modules can reference it.
+// This keeps a single source of truth for auth user storage.
+import { users } from "./models/auth";
+
 export const customerProfiles = pgTable(
   "customer_profiles",
   {

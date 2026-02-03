@@ -3,9 +3,10 @@ import type { Server } from "http";
 import { api } from "@shared/routes";
 import { z } from "zod";
 import { storage } from "./storage";
-import { isAuthenticated, registerAuthRoutes } from "./replit_integrations/auth";
+import { isAuthenticated, registerAuthRoutes, setupAuth } from "./replit_integrations/auth";
 import { db } from "./db";
 import { plans } from "@shared/schema";
+import { eq } from "drizzle-orm";
 
 function getUserId(req: any): string | null {
   const id = req?.user?.claims?.sub;
@@ -33,6 +34,8 @@ async function seedDatabase(): Promise<void> {
 export async function registerRoutes(httpServer: Server, app: Express): Promise<Server> {
   await seedDatabase();
 
+  await setupAuth(app);
+
   registerAuthRoutes(app);
 
   app.get(api.plans.list.path, async (req, res) => {
@@ -51,7 +54,7 @@ export async function registerRoutes(httpServer: Server, app: Express): Promise<
       const input = api.recharges.create.input.parse(req.body);
       const userId = getUserId(req);
 
-      const [plan] = await db.select().from(plans).where(z.coerce.number().parse(input.planId) ? (await import("drizzle-orm")).eq(plans.id, input.planId) : (await import("drizzle-orm")).eq(plans.id, input.planId));
+      const [plan] = await db.select().from(plans).where(eq(plans.id, input.planId));
       if (!plan) {
         return res.status(400).json({ message: "Invalid plan", field: "planId" });
       }
