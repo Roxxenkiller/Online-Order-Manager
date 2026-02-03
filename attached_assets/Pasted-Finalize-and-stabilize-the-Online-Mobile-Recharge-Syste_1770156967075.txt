@@ -1,0 +1,61 @@
+Finalize and stabilize the Online Mobile Recharge System as a complete full-stack web application.
+
+Scope confirmation:
+- This is a full application (not just UI).
+- Recharge plans are FIXED and seeded; admin does NOT manage or disable plans.
+
+Requirements to complete in this single pass:
+
+1. Authentication
+- Use the existing Replit login flow.
+- Maintain session-based authentication.
+- Identify admin by matching logged-in user email with ADMIN_EMAIL environment variable.
+
+2. User Features (logged-in):
+- Browse recharge plans (Top-Up and Special).
+- Perform mobile recharge (mock payment).
+- Pay postpaid bills using the mock bill API.
+- Generate and display a clear transaction receipt after payment.
+- Activate/deactivate services:
+  • Do Not Disturb
+  • Caller Tune
+- View personal recharge and bill payment history.
+- Edit personal profile details.
+
+3. Guest Features:
+- Browse recharge plans.
+- Perform online recharge as guest.
+- Submit feedback.
+
+4. Admin Panel (admin email only):
+- Dashboard overview (daily summary).
+- View all transactions by date.
+- View registered users list.
+- View feedback submissions.
+- Admin access must be blocked for non-admin users.
+
+5. Backend & Database:
+- Use the existing PostgreSQL schema.
+- Ensure APIs work correctly:
+  • /api/plans
+  • /api/recharges
+  • /api/bills/:mobileNumber
+  • /api/bill-payments
+  • /api/feedback
+  • /api/admin/*
+- Ensure proper validation (especially 10-digit mobile numbers).
+- Add clear comments to all major code blocks.
+
+6. Frontend:
+- Ensure all required pages exist and are linked via navigation:
+  Home, Online Recharge, My Account, Postpaid Bill Payment, Feedback, About Us, Contact Us, Customer Care.
+- Frontend must correctly call backend APIs.
+- Show success/error messages clearly.
+
+7. Quality & Completion:
+- Do NOT add new features beyond this scope.
+- Do NOT redesign UI unnecessarily.
+- Focus on correctness, stability, and project completeness.
+- Ensure the app runs cleanly in Preview without errors.
+
+Complete everything in one pass and leave the project in a submission-ready state.
