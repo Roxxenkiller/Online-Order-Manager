@@ -1,0 +1,89 @@
+Build a complete full-stack web application called "Online Mobile Recharge System".
+
+TECH STACK:
+- Frontend: HTML, CSS, JavaScript (Bootstrap allowed)
+- Backend: Node.js with Express (or Java/JSP if preferred)
+- Database: SQLite or MySQL
+- Authentication: Session-based login
+- Validation: Client-side + server-side
+
+PROJECT DESCRIPTION:
+The system allows users to recharge mobile numbers online, activate services, and pay postpaid bills. The system has three roles: Admin, Registered User, and Guest User.
+
+FEATURES & REQUIREMENTS:
+
+1. HOME PAGE
+- Display organization name
+- Navigation links:
+  - Online Recharge
+  - My Account
+  - Post Bill Payment
+  - Feedback
+  - Site Map
+  - About Us
+  - Contact Us
+  - Customer Care
+
+2. ONLINE RECHARGE
+- Ask for 10-digit mobile number with validation
+- After validation, show:
+  a) Top-Up Recharge
+     - Display available talk-time plans in a table
+     - Select plan → Submit → Payment page
+  b) Special Recharge
+     - Display special plans in a table
+     - Select plan → Submit → Payment page
+- Payment form (mock payment is fine)
+- After payment, show transaction receipt with:
+  - Transaction ID
+  - Mobile number
+  - Recharge type
+  - Amount
+  - Date & time
+  - Print or Cancel option
+
+3. USER ACCOUNT (REGISTERED USERS)
+- Registration using mobile number as username
+- Login system
+- Features:
+  - Online Recharge
+  - Activate/Deactivate services:
+      • Do Not Disturb
+      • Caller Tunes
+  - Edit personal details
+  - View recharge history
+
+4. POSTPAID BILL PAYMENT
+- Enter postpaid mobile number
+- Show bill amount (mock)
+- Pay online and generate receipt
+
+5. FEEDBACK
+- Guest and users can submit feedback
+- Store feedback in database
+
+6. ADMIN PANEL
+- Secure admin login
+- View:
+  - All daily transactions
+  - Registered users list
+  - Feedback received
+
+7. STATIC PAGES
+- About Us
+- Contact Us (show contact details of mobile centers)
+- Customer Care (display helpline number)
+- Site Map
+
+8. VALIDATION & STANDARDS
+- Proper constraint validation everywhere
+- Clear comments in every code block
+- Clean folder structure
+- Explain logic with comments
+- Use MVC-style separation if possible
+
+OUTPUT EXPECTED:
+- Fully working project
+- Database schema included
+- Sample data inserted
+- Instructions to run the project in Replit
